@@ -4,16 +4,15 @@ todo simples, fixando a criação de tasks a partir dum metodo constructor.
 
 ```js
 
-function Task(name, completed, createdAt, updatedAt) {
+function Task(name, completed = false, createdAt = Date.now(), updatedAt = null) {
     if (!name) {
       throw new Error("Name is required.");
     }
 
     let _name = name;
-    
-    this.completed = completed || false;
-    this.createdAt = createdAt || Date.now();
-    this.updatedAt = updatedAt || null;
+    this.completed = completed;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
     this.toggleDone = function () {
       this.completed = !this.completed;
     };
